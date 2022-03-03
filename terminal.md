@@ -2,6 +2,9 @@
 
 ```python
 sudo apt update
+sudo apt install vim
+sudo apt install git
+sudo apt install curl
 sudo apt-get install tilix
 sudo update-alternatives --config x-terminal-emulator
 echo $SHELL
