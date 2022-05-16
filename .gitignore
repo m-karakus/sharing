@@ -1,2 +1,4 @@
 .env
 key.json
+logs/
+__pycache__/
