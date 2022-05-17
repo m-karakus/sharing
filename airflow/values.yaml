@@ -54,8 +54,8 @@ airflowVersion: "2.2.4"
 # Images
 images:
   airflow:
-    repository: mkarakus2/sharing
-    tag: airflow-v1.0.0
+    repository: ~
+    tag: ~
     pullPolicy: IfNotPresent
   # To avoid images with user code, you can turn this to 'true' and
   # all the 'run-airflow-migrations' and 'wait-for-airflow-migrations' containers/jobs
