@@ -1,9 +1,12 @@
 # mkarakus2/sharing:airflow-v1.0.0
 # https://github.com/coder2j/airflow-docker
 
-FROM apache/airflow:slim-latest-python3.10
+# FROM apache/airflow:slim-latest-python3.10
+FROM apache/airflow:2.2.4
 
-COPY requirements.txt /requirements.txt 
 RUN pip install --upgrade pip
-RUN pip install --upgrade setuptools
-RUN pip install --no-cache-dir -r /requirements.txt
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
+
+# docker build . --tag mkarakus2/sharing:airflow-v1.0.0 
+# docker push mkarakus2/sharing:airflow-v1.0.0
