@@ -12,6 +12,7 @@ default_args = {
 
 
 with DAG(
+    catchup=False,
     dag_id='v001_our_first_dag',
     default_args=default_args,
     description='This is our first dag that we write',

@@ -30,6 +30,7 @@ def get_age(ti):
 
 
 with DAG(
+    catchup=False,
     default_args=default_args,
     dag_id='v001_our_dag_with_python_operator',
     description='Our first dag using python operator',

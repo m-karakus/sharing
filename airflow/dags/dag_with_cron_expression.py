@@ -11,6 +11,7 @@ default_args = {
 }
 
 with DAG(
+    catchup=False,
     default_args=default_args,
     dag_id="dag_with_cron_expression_v04",
     start_date=datetime(2021, 11, 1),
