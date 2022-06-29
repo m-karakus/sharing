@@ -14,6 +14,7 @@ helm upgrade --install --debug \
     airflow-stable/airflow \
     --namespace "$AIRFLOW_NAMESPACE" \
     --version "8.6.0" \
-    --values ./values.yaml
+    --values ./values.yaml \
+    --set nodeSelector.type=worker
 
 cp -r /root/systems/prod/airflow/dags/. /srv/nfs/kubedata/airflow-cluster-airflow-dags-pvc-pvc-fe2ddb07-8bb5-4a45-ba94-e2eaa5af9236
