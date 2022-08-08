@@ -1,13 +1,35 @@
 version: '3.8'
-
-services:
-  pgadmin4:
-    image: dpage/pgadmin4
-    container_name: pgadmin4
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=youremail@whatever.com
-      - PGADMIN_DEFAULT_PASSWORD=password
-      - PGADMIN_LISTEN_PORT=5050
+services :
+  db:
+    image: postgres
+    restart: unless-stopped
     ports:
-      - "5050:5050"
-    network_mode: host
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - /var/lib/postgres
+      - ./dbscripts/postgres:/docker-entrypoint-initdb.d
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    depends_on: 
+      - db
+    ports:
+      - 8080:8080
+
+  # pgadmin4:
+  #   image: dpage/pgadmin4
+  #   container_name: pgadmin4
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=youremail@whatever.com
+  #     - PGADMIN_DEFAULT_PASSWORD=password
+  #     - PGADMIN_LISTEN_PORT=5050
+  #   ports:
+  #     - "5050:5050"
+  #   depends_on: 
+  #     - db
+  #   network_mode: host
