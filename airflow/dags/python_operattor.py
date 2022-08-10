@@ -7,6 +7,7 @@ from airflow.operators.python import PythonOperator
 default_args = {
     'owner': 'metin',
     'retries': 2,
+    'execution_timeout' :timedelta(days=1),
     'retry_delay': timedelta(minutes=5)
 }
 
