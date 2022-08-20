@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  # pgadmin4:
+  #   image: dpage/pgadmin4
+  #   container_name: pgadmin4
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=youremail@whatever.com
+  #     - PGADMIN_DEFAULT_PASSWORD=password
+  #     - PGADMIN_LISTEN_PORT=5050
+  #   ports:
+  #     - "5050:5050"
+  #   network_mode: host
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    network_mode: host
+
+
