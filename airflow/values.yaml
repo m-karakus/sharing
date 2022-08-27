@@ -2,6 +2,11 @@
 ## CONFIG | Airflow Configs
 ########################################
 airflow:
+
+  defaultNodeSelector: {}
+    # my_node_label_1: value1
+    # my_node_label_2: value2
+
   ## if we use legacy 1.10 airflow commands
   legacyCommands: false
 
@@ -82,6 +87,7 @@ airflow:
   ## [NOTE] the `dags.gitSync` values will create a git-sync init-container in the pod
   ## [NOTE] the `airflow.extraPipPackages` will NOT be installed
   kubernetesPodTemplate:
+    nodeSelector: {}
 
     ## the full content of the pod-template file (as a string)
     ## [NOTE] all other `kubernetesPodTemplate.*` are disabled when this is set
@@ -110,6 +116,7 @@ airflow:
 ## COMPONENT | Airflow Scheduler
 ###################################
 scheduler:
+  nodeSelector: {}
   ## the number of scheduler Pods to run
   replicas: 1
 
@@ -138,6 +145,7 @@ scheduler:
 ## COMPONENT | Airflow Webserver
 ###################################
 web:
+  nodeSelector: {}
   ## the number of web Pods to run
   replicas: 1
 
@@ -171,6 +179,8 @@ web:
 ## COMPONENT | Airflow Workers
 ###################################
 workers:
+  nodeSelector: {}
+
   ## if the airflow workers StatefulSet should be deployed
   enabled: false
 
@@ -178,6 +188,8 @@ workers:
 ## COMPONENT | Triggerer
 ###################################
 triggerer:
+  nodeSelector: {}
+
   ## if the airflow triggerer should be deployed
   enabled: true
 
@@ -195,6 +207,8 @@ triggerer:
 ## COMPONENT | Flower
 ###################################
 flower:
+  nodeSelector: {}
+
   ## if the airflow flower UI should be deployed
   enabled: false
 
