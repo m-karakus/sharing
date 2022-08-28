@@ -7,7 +7,8 @@ from airflow.operators.bash import BashOperator
 default_args = {
     'owner': 'metin',
     'retries': 2,
-    'retry_delay': timedelta(minutes=5)
+    'retry_delay': timedelta(minutes=5),
+    'max_active_runs': 10
 }
 
 with DAG(

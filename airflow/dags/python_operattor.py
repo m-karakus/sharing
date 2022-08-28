@@ -8,7 +8,8 @@ default_args = {
     'owner': 'metin',
     'retries': 2,
     'execution_timeout' :timedelta(days=1),
-    'retry_delay': timedelta(minutes=5)
+    'retry_delay': timedelta(minutes=5),
+    'max_active_runs': 10
 }
 
 
