@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  gooddata:
+    image: gooddata/gooddata-cn-ce:dev_latest
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    environment:
+      - LICENSE_AND_PRIVACY_POLICY_ACCEPTED=YES
+    ports:
+      - 3000:3000
+      - 5432:5432
+    volumes:
+      - .:/data
+
+# email: demo@example.com
+# password: demo123
+# token: YWRtaW46Ym9vdHN0cmFwOmFkbWluMTIz

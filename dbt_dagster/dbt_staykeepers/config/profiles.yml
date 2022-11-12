@@ -1,0 +1,49 @@
+staykeepers:
+  target: dev
+  outputs:
+    dev:
+      dataset: dbt_staging
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: europe
+      method: service-account-json
+      priority: interactive
+      project: xxx
+      threads: 1
+      type: bigquery
+      # These fields come from the service account json keyfile
+      keyfile_json:
+        type: "service_account"
+        project_id: "xxx"
+        private_key_id: "xxx"
+        private_key: "xxx"
+        client_email: "xxx"
+        client_id: "xxx"
+        auth_uri: "https://accounts.google.com/o/oauth2/auth"
+        token_uri: "https://oauth2.googleapis.com/token"
+        auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"
+        client_x509_cert_url: "xxx"
+
+
+    prod:
+      dataset: dbt
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: europe-west2
+      method: service-account-json
+      priority: interactive
+      project: itdata-308413
+      threads: 1
+      type: bigquery
+      # These fields come from the service account json keyfile
+      keyfile_json:
+        type: "service_account"
+        project_id: "xxx"
+        private_key_id: "xxx"
+        private_key: "xxx"
+        client_email: "xxx"
+        client_id: "xxx"
+        auth_uri: "https://accounts.google.com/o/oauth2/auth"
+        token_uri: "https://oauth2.googleapis.com/token"
+        auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"
+        client_x509_cert_url: "xxx"

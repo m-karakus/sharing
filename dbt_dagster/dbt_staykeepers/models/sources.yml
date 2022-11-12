@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: xxx
+    description: 'xxx'
+    database: xxx
+    schema: xxx
+    tables:
+      - name: xxx
+        description: 'xxx'
+      - name: tbl

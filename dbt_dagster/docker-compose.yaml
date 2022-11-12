@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  dagster-dagit:
+    build: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - dagster-postgres
+  dagster-daemon:
+    build: .
+    command: "dagster-daemon run"
+  dagster-postgres:
+    image: postgres:13
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "secret"
+    expose:
+      - "5433" # Publishes 5433 to other containers but NOT to host machine
+    ports:
+      - "5433:5433"
+    command: -p 5433
+    volumes:
+      - dagster-postgres:/var/lib/postgresql/data
+volumes:
+  dagster-postgres:
+    driver: local

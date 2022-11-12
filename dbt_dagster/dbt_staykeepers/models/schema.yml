@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: xxx
+    description: "xxx view"
+    columns:
+      - name: x
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+          - is_wrong_commission
